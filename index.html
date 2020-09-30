@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Somehow I got an error, so I comment the title, just uncomment to show -->
+    <!-- <title>Personal Portfolio Website</title> -->
+    <link rel="stylesheet" href="index.css">
+
+    
+  
+
+</head>
+<title>Moe's Personal Website</title>
+
+<canvas id="canvas" width="400" height="400"
+style="background-color:#333">
+</canvas>
+
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+setInterval(drawClock, 1000);
+
+function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
+}
+
+function drawFace(ctx, radius) {
+  var grad;
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad.addColorStop(0, '#333');
+  grad.addColorStop(0.5, 'white');
+  grad.addColorStop(1, '#333');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  ctx.fillStyle = '#333';
+  ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius*0.15 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="right";
+  for(num = 1; num < 13; num++){
+    ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius*0.88);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius*0.85);
+    ctx.rotate(-ang);
+  }
+}
+
+function drawTime(ctx, radius){
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    //hour
+    hour=hour%12;
+    hour=(hour*Math.PI/6)+
+    (minute*Math.PI/(6*60))+
+    (second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+</script>
+
+
+
+<body bgcolor="grey">
+
+    <!DOCTYPE html>
+<html>
+<body>
+
+
+
+</body>
+</html>
+
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+<nav class="navbar sticky">
+        <div class="max-width">
+            <div class="logo">
+                    <a href="#">Portfolio of :  <span>Mohammad Saifan</span></a>
+                
+<ul class="menu">
+<li><a href="#home" class="menu-btn">Home</a></li>
+<li><a href="#about" class="menu-btn">About</a></li>
+<li><a href="#services" class="menu-btn">Favorite Sport teams</a></li>
+<li><a href="#skills" class="menu-btn">Skills</a></li>
+<li><a href="#teams" class="menu-btn">Hobbies</a></li>
+<li><a href="#contact" class="menu-btn">Contact</a></li>
+</ul>
+<div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+</div>
+</nav>
+
+    <!-- home section start -->
+    <p>
+
+                    
+                <div class=profile-pic style='float: NaNright;; margin-bottm:233px';>
+                        <img src="222.jpg" alt="moe" width="450" height="550" class="profile">
+                </p>
+
+                        <marquee scrollamount="10"
+                            direction="left"
+                            behavior="shift">
+                            <img src="https://i.ytimg.com/vi/zecueq-mo4M/maxresdefault.jpg" alt="moe" width="250" height="120">
+                        </marquee>
+                        
+                    </div>
+                
+            </h3>
+            <section class="home" id="home">
+                <div class="max-width">
+                    <div class="home-content">
+                        <div class="text-1">
+        Hello, my name is</div>
+        <div class="text-2">
+        Mohammad Saifan</div>
+        <div class="text-3">
+        And I'm a student at ><a href="https://www.rutgers.edu/">Rutgers Univeristy</a><span class="typing"></span></div>
+        
+         </div>
+        </div>
+    </section>
+                        </div>
+                
+    <!-- about section start -->
+    <section class="about" id="about">
+        <div class="max-width">
+            <h2 class="title">
+About me</h2>
+<div class="about-content">
+                <div class="column left">
+                    <img src="https://pbs.twimg.com/profile_images/1298308823552327680/A2u79AXx.jpg" alt="" width="300" height="20">
+                </div>
+<div class="column right">
+                    <div class="text">
+                        And I'm a student at ><a href="https://www.rutgers.edu/">Rutgers Univeristy</a><span class="typing"></span></div>
+                        <p> Throughout my school years from grade 9 to now,
+                            I have always been enthusiastic about joining a
+                            computer science field position. I devoted all my 
+                            school years focusing on technology and some of its
+                            branches such as Software Engineering,
+                            Network Engineering, and Artificial Intelligence.</p>
+<a href="#">Download CV</a>
+                </div>
+</div>
+</div>
+</section>
+
+    <!-- services section start -->
+    <section class="services" id="services">
+        <div class="max-width">
+            <h2 class="title">
+My services</h2>
+<div class="serv-content">
+                <div class="card">
+                    <div class="box">
+                        <i class="fas fa-paint-brush"></i>
+                        <div class="text">
+<a href = "https://www.juventus.com/en/" target="blank">My favorite soccer team</a></div>
+<p>
+</div>
+</div>
+<div class="card">
+                    <div class="box">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="text">
+<a href="https://www.nba.com/lakers/" target="blank">My favorite basketball team</a></div>
+<p>
+</div>
+</div>
+<div class="card">
+                    <div class="box">
+                        <i class="fas fa-code"></i>
+                        <div class="text">
+<a href ="https://www.newyorkjets.com/" target="blank">My favorite football team</a></div>
+<p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+    <!-- skills section start -->
+    <section class="skills" id="skills">
+        <div class="max-width">
+            <h2 class="title">
+My skills</h2>
+<div class="skills-content">
+                <div class="column left">
+                    <div class="text">
+Skills and Experiences  :  </div>
+    <ol>
+        <li>HTML</li>
+        <li>css</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>React</li>
+        <li>Django</li>
+
+    </ol>
+                </div>
+<div class="column right">
+                    <div class="bars">
+                        <div class="info">
+                            <span>HTML</span>
+                            <span>90%</span>
+                        </div>
+<div class="line html">
+</div>
+</div>
+<div class="bars">
+                        <div class="info">
+                            <span>CSS</span>
+                            <span>70%</span>
+                        </div>
+<div class="line css">
+</div>
+</div>
+<div class="bars">
+    <div class="info">
+        <span>JavaScript</span>
+        <span>80%</span>
+    </div>
+<div class="line js">
+</div>
+</div>
+<div class="bars">
+                        <div class="info">
+                            <span>Python</span>
+                            <span>80%</span>
+                        </div>
+<div class="line js">
+</div>
+</div>
+<div class="bars">
+                        <div class="info">
+                            <span>React</span>
+                            <span>50%</span>
+                        </div>
+<div class="line php">
+</div>
+</div>
+<div class="bars">
+                        <div class="info">
+                            <span>Django</span>
+                            <span>60%</span>
+                        </div>
+<div class="line mysql">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+    <!-- teams section start -->
+    <section class="teams" id="teams">
+        <div class="max-width">
+            <h2 class="title">
+My teams</h2>
+<div class="carousel owl-carousel">
+                <div class="card">
+                    <div class="box">
+                        <img src="https://media4.giphy.com/media/Woi5vL1MOxSmrp5Umh/source.gif" alt="">
+                        <div class="text">
+Playing basketball</div>
+<p>
+</p>
+</div>
+</div>
+<div class="card">
+                    <div class="box">
+                        <img src="https://i.gifer.com/946o.gif" alt="funny Coding gif">
+                        <div class="text">
+Coding on my free-time</div>
+
+</div>
+</div>
+<div class="card">
+                    <div class="box">
+                        <img src="https://media1.tenor.com/images/d255f86cd4be8a67347842a4c615f06c/tenor.gif?itemid=8009182" alt="listening to music gif">
+                        <div class="text">
+Listening to music</div>
+
+</div>
+</div>
+<div class="card">
+                    <div class="box">
+                        <img src="https://www.rivernorthgym.com/wp-content/uploads/2018/12/41398845_713349935690574_84374240422594465_n-960x1200.jpg" alt="Gym image">
+                        <div class="text">
+Working out at the gym</div>
+</div>
+</div>
+<div class="card">
+                    <div class="box">
+                        <img src="https://img.favpng.com/24/13/19/cartoon-people-clip-art-male-friendship-png-favpng-N43sTGAiAaukerfbp51j4905m.jpg" alt="Friends image">
+                        <div class="text">
+Hanging out with friends</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+    <!-- contact section start -->
+    <section class="contact" id="contact">
+        <div class="max-width">
+            <h2 class="title">
+Contact me</h2>
+<div class="contact-content">
+                <div class="column left">
+                    <div class="text">
+Get in Touch With Me!</div>
+<p>
+    <ul>
+        <li>Contact me via phone ~ 551-795-7704</li>
+        <li>Contact me via email ~ moesaifan@hotmail.com</li>
+        <li><a href= "https://www.linkedin.com/in/mohammad-saifan-824ba9174/">Contact me via LinkedIn</a></li>
+        
+    </ul>
+
+</
+</form>
+</div>
+</div>
+</div>
+</section>
+
+    <!-- footer section start -->
+    <footer>
+        <span>Created By <a href="https://www.linkedin.com/in/mohammad-saifan-824ba9174/">Mohammad Saifan</a> | <span class="far fa-copyright"></span> 2020 All rights reserved.</span>
+    </footer>
+
+ <!-- Somehow I got an error, so I comment the script tag, just uncomment to use -->
+<!-- <script src="script.js"></script> -->
+</body>
+</html>
+
+
